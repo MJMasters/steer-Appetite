@@ -5,10 +5,15 @@
 
 <ul>	
 	<% @pubs.each do |pub| %>
+
+	<%= link_to root_path(search: { q: pub.address }) do %>
+
 	<li data-lat="<%= pub.latitude %>" data-lng="<%= pub.longitude %>" >
-		<p><%= pub.name%></p>
-		<p><%= pub.address%></p>
-	</li>
+			<p><%= pub.name%></p>
+			<p><%= pub.address%></p>
+		</li>
+
+		<% end %>
 	<% end %>
 </ul>
 
