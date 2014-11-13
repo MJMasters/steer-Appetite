@@ -1,6 +1,11 @@
+<%=simple_form_for :search, url: root_path, method: :get do |f| %>
+<%= f.input :q, label: false %>
+<%end%>
+
+
 <ul>	
 	<% @pubs.each do |pub| %>
-	<li data-latitude="<%= pub.latitude %>" data-longitude="<%= pub.longitude %>" >
+	<li data-lat="<%= pub.latitude %>" data-lng="<%= pub.longitude %>" >
 		<p><%= pub.name%></p>
 		<p><%= pub.address%></p>
 	</li>
@@ -9,4 +14,4 @@
 
 <section id="map"></section>
 
-<%= link_to "Add a Pub", new_pub_path %>
+<%= link_to "Add a Pub", new_pub_path, class: 'button' %>
