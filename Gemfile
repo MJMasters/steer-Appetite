@@ -39,3 +39,14 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem "simple_form"
+gem 'steer', github: 'tmcdb/steer-rb'
+gem 'geocoder'
+
+group :development, :test do
+	gem 'sqlite3'
+end
+
+group :production do
+	gem 'pg'
+	gem 'rails_12factor'
+end

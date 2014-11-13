@@ -1,5 +1,9 @@
 class PubsController < ApplicationController
 	
+	def index
+		@pubs = Pub.all
+	end
+
 	def new
 		@pub = Pub.new
 	end
@@ -7,20 +11,16 @@ class PubsController < ApplicationController
 	def create
 		@pub = Pub.new(pub_params)
 		if @pub.save
-				flash[:success] = "Thanks for Adding a Pub"
+				flash[:success] = "Thanks for adding a new Pub"
 				redirect_to pubs_path
 			else
-				flash[:error] = "Oops, sorry, something went wrong"
+				flash[:error] = "Oops, Sorry, something went wrong please try again"
 				render :new
 			end
 	end
 
-	def index
-		@pubs = Pub.all
-	end
-
 private
 	def pub_params
-		params.require(:pub).permit(:name, :address, :rating)
+		params.require(:pub).permit(:name, :address, :latitude, :longitude, :rating)
 	end
 end
