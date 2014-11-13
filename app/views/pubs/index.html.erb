@@ -1,5 +1,10 @@
-<h1>Pubs#index</h1>
+<ul>	
 	<% @pubs.each do |pub| %>
+	<li data-latitude="<%= pub.latitude %>" data-longitude="<%= pub.longitude %>" >
 		<p><%= pub.name%></p>
+		<p><%= pub.address%></p>
+	</li>
 	<% end %>
+</ul>
 
+<section id="map"></section>
